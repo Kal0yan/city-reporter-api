@@ -28,11 +28,14 @@ namespace DataBase
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CommentDbModel>().Property(c => c.Id).UseIdentityColumn(100000);
+            modelBuilder.Entity<UserDbModel>().Property(u => u.Id).UseIdentityColumn(100000);
             base.OnModelCreating(modelBuilder);
         }
             
         public DbSet<UserDbModel> UserDbModels { get; set; }
 
         public DbSet<ReportDbModel> ReportDbModels { get; set; }
+        public DbSet<CommentDbModel> CommentDbModels { get; set; }
     }
 }
